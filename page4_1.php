@@ -60,6 +60,12 @@
 	<span id='zoneTime'>Time will display here</span>
 </p>
 
+<p>
+	<form action="" methode="GET" name="showList">
+		<input type="submit" value="see the whole list" />
+	</form>
+</p>
+
 <?php
 
 	$user = 'root';
@@ -97,7 +103,24 @@
 		echo $row["color"] . "<br />";
 	}
 
+	if(isset($_GET['showList'])) {
+		$query = "SELECT * from VOITURE" or die("Error in the query to the db" . mysqli_error($link));
+
+			$result = $link->query($query);
+
+			while($row = mysqli_fetch_array($result)) {
+				echo $row["id"] . " ";
+				echo $row["brand"] . " ";
+				echo $row["color"] . "<br />";
+			}
+		}
+	
+
 ?>
+
+	
+
+
 
 </body>
 </html>
