@@ -20,6 +20,10 @@
 
 <?php
 	
-	echo "Value of the form: ".$_GET['tosend'];
+	if (isset($_GET['tosend'])) {
+		echo "Value of the form: ".$_GET['tosend'];
+	}	else {
+		echo "No value sent by the form yet";
+	}
 
 ?>
